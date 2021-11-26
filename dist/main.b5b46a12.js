@@ -108,7 +108,7 @@ var $siteList = $('.siteList');
 var $lastLi = $siteList.find('.last');
 var x = localStorage.getItem('x');
 var xObject = JSON.parse(x);
-var hashMap = xObject || [{ logo: 'image/GitHub.png', logoType: 'image', url: 'https://github.com' }, { logo: 'image/juejin.png', logoType: 'image', url: 'https://juejin.cn' }, { logo: 'image/bilibili.png', logoType: 'image', url: 'https://bilibili.com' }];
+var hashMap = xObject || [{ logo: 'G', url: 'https://github.com' }, { logo: 'J', url: 'https://juejin.cn' }, { logo: 'B', url: 'https://bilibili.com' }];
 var simplifyUrl = function simplifyUrl(url) {
     return url.replace('http://', '').replace('https://', '').replace('www.', '').replace(/\/.*/, '');
 };
@@ -116,27 +116,15 @@ var simplifyUrl = function simplifyUrl(url) {
 var render = function render() {
     $siteList.find('li:not(.last)').remove();
     hashMap.forEach(function (node, index) {
-        if (node.logoType === 'image') {
-            var $li = $('\n            <li>\n                <div class="site">\n                    <div class="logo">\n                        <img class="myImg" src="' + (node.logo + '?' + Math.random()) + '" alt="">\n                    </div>\n                    <div class="link">' + simplifyUrl(node.url) + '</div>\n                    <div class="close">\n                    <svg class="icon">\n                        <use xlink:href="#icon-close"></use>\n                    </svg>\n                    </div>\n                </div>   \n        </li>\n            ').insertBefore($lastLi);
-            $li.on('click', function () {
-                window.open(node.url);
-            });
-            $li.on('click', '.close', function (e) {
-                e.stopPropagation();
-                hashMap.splice(index, 1);
-                render();
-            });
-        } else if (node.logoType === 'text') {
-            var _$li = $('\n            <li>\n                <div class="site">\n                    <div class="logo">\n                        ' + node.logo.toUpperCase() + '\n                    </div>\n                    <div class="link">' + simplifyUrl(node.url) + '</div>\n                    <div class="close">\n                    <svg class="icon">\n                        <use xlink:href="#icon-close"></use>\n                    </svg>\n                    </div>\n                </div>   \n        </li>\n            ').insertBefore($lastLi);
-            _$li.on('click', function () {
-                window.open(node.url);
-            });
-            _$li.on('click', '.close', function (e) {
-                e.stopPropagation();
-                hashMap.splice(index, 1);
-                render();
-            });
-        }
+        var $li = $('\n            <li>\n                <div class="site">\n                    <div class="logo">\n                        ' + node.logo.toUpperCase() + '\n                    </div>\n                    <div class="link">' + simplifyUrl(node.url) + '</div>\n                    <div class="close">\n                    <svg class="icon">\n                        <use xlink:href="#icon-close"></use>\n                    </svg>\n                    </div>\n                </div>   \n        </li>\n            ').insertBefore($lastLi);
+        $li.on('click', function () {
+            window.open(node.url);
+        });
+        $li.on('click', '.close', function (e) {
+            e.stopPropagation();
+            hashMap.splice(index, 1);
+            render();
+        });
     });
 };
 render();
@@ -165,4 +153,4 @@ $(document).on('keypress', function (e) {
     }
 });
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.1b59a323.map
+//# sourceMappingURL=main.b5b46a12.map

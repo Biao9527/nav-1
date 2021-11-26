@@ -3,9 +3,9 @@ const $lastLi = $siteList.find('.last')
 const x = localStorage.getItem('x')
 const xObject = JSON.parse(x)
 const hashMap = xObject || [
-    {logo: 'image/GitHub.png' , logoType: 'image', url: 'https://github.com'},
-    {logo: 'image/juejin.png' , logoType: 'image' , url: 'https://juejin.cn'},
-    {logo: 'image/bilibili.png' , logoType: 'image' , url: 'https://bilibili.com'}
+    {logo: 'G' , url: 'https://github.com'},
+    {logo: 'J' , url: 'https://juejin.cn'},
+    {logo: 'B' , url: 'https://bilibili.com'}
 ]
 const simplifyUrl = (url)=>{
     return url.replace('http://' , '')
@@ -17,31 +17,6 @@ const simplifyUrl = (url)=>{
 const render = ()=>{
     $siteList.find('li:not(.last)').remove()
     hashMap.forEach((node,index) => {
-            if (node.logoType === 'image') {
-                const $li = $(`
-            <li>
-                <div class="site">
-                    <div class="logo">
-                        <img class="myImg" src="${node.logo+'?'+Math.random()}" alt="">
-                    </div>
-                    <div class="link">${simplifyUrl(node.url)}</div>
-                    <div class="close">
-                    <svg class="icon">
-                        <use xlink:href="#icon-close"></use>
-                    </svg>
-                    </div>
-                </div>   
-        </li>
-            `).insertBefore($lastLi)
-                $li.on('click' , ()=>{
-                window.open(node.url)
-            })
-                $li.on('click' , '.close',(e)=>{
-                e.stopPropagation()
-                hashMap.splice(index , 1)
-                render()
-            })
-            } else if (node.logoType === 'text'){
                 const $li = $(`
             <li>
                 <div class="site">
@@ -65,7 +40,6 @@ const render = ()=>{
                 hashMap.splice(index , 1)
                 render()
             })
-            }
     })
 }
 render()
