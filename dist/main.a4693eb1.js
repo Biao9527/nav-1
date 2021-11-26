@@ -108,7 +108,7 @@ var $siteList = $('.siteList');
 var $lastLi = $siteList.find('.last');
 var x = localStorage.getItem('x');
 var xObject = JSON.parse(x);
-var hashMap = xObject || [{ logo: 'G', url: 'https://github.com' }, { logo: 'J', url: 'https://juejin.cn' }, { logo: 'B', url: 'https://bilibili.com' }];
+var hashMap = xObject || [{ logo: 'G', url: 'https://github.com' }, { logo: 'J', url: 'https://juejin.cn' }, { logo: 'G', url: 'https://google.com' }, { logo: 'B', url: 'https://bilibili.com' }];
 var simplifyUrl = function simplifyUrl(url) {
     return url.replace('http://', '').replace('https://', '').replace('www.', '').replace(/\/.*/, '');
 };
@@ -153,4 +153,4 @@ $(document).on('keypress', function (e) {
     }
 });
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.b5b46a12.map
+//# sourceMappingURL=main.a4693eb1.map
