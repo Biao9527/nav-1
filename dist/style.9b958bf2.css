@@ -1,0 +1,149 @@
+/* css reset */
+* {
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+ul,
+ol {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: initial;
+}
+
+/* style */
+img {
+  width: 100%;
+}
+body {
+  background: #eee;
+}
+.searchForm {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+@media (min-width: 500px) {
+  .globalHeader {
+    margin-top: 80px;
+    margin-bottom: 50px;
+  }
+  .searchForm {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .globalMain {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.searchForm > input {
+  width: 100%;
+  padding: 11px 10px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+}
+.searchForm > button {
+  white-space: nowrap;
+  margin-left: 20px;
+  padding: 0 15px;
+  border-radius: 5px;
+  border: none;
+  background: #0b9edd;
+  color: white;
+  font-size: 16px;
+}
+
+.siteList {
+  margin: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+@media (min-width: 500px) {
+  .siteList {
+    justify-content: start;
+    margin-left: 0;
+    margin-right: -25px;
+  }
+  .siteList > li {
+    margin-right: 25px;
+    margin-bottom: 10px;
+  }
+}
+.globalMain .siteList > li {
+  margin-bottom: 15px;
+}
+.globalMain .site {
+  width: 160px;
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 23px;
+  position: relative;
+}
+@media (min-width: 500px) {
+  .globalMain .site {
+    cursor: pointer;
+  }
+  .globalMain .site > .close {
+    display: none;
+  }
+  .globalMain .site:hover > .close {
+    display: block;
+  }
+}
+.globalMain .site > .logo {
+  width: 64px;
+  height: 64px;
+  font-size: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.globalMain .site > .link {
+  font-size: 18px;
+  margin-top: 4px;
+}
+.siteList .site > .close {
+  position: absolute;
+  right: 2px;
+  top: 2px;
+}
+.globalMain .addButton {
+  width: 160px;
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 23px;
+}
+.globalMain .add {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.globalMain .text {
+  font-size: 18px;
+  margin-top: 5px;
+}
